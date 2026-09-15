@@ -22,7 +22,7 @@ class Orden
     private ?\DateTime $iniciada = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTime $confirmado = null;
+    private ?\DateTime $confirmada = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -68,14 +68,14 @@ class Orden
         return $this;
     }
 
-    public function getConfirmado(): ?\DateTime
+    public function getConfirmada(): ?\DateTime
     {
-        return $this->confirmado;
+        return $this->confirmada;
     }
 
-    public function setConfirmado(?\DateTime $confirmado): static
+    public function setConfirmada(?\DateTime $confirmada): static
     {
-        $this->confirmado = $confirmado;
+        $this->confirmada = $confirmada;
 
         return $this;
     }
