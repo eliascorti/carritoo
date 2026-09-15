@@ -4,11 +4,13 @@
 
 {% block body %}
     <header class="header">
-        <h1 class="title">Carrito de Compras</h1>
+        <h1 class="title">
+            Carrito de Compras{% if app.user %} - {{ app.user.nombre }}{% endif %}
+        </h1>
 
         <nav>
             <a class="btn-ligth" href="#">Ver Orden</a>
-            <a class="btn-ligth" href="#">Salir</a>
+            <a class="btn-ligth" href="{{ path('app_logout') }}">Salir</a>
         </nav>
     </header>
 

@@ -11,16 +11,15 @@ class UsuarioFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $password = ' $2y$13$.3VfaPugJAay3lDdA7HnGOr4J4s2VrVA2FAsidSNdtx8Jt6vRNeXS';
-        // $product = new Product();
-        // $manager->persist($product);
+        // Hash generado con `php bin/console security:hash-password 123`.
+        $password = '$2y$13$LrndeyV1e7Q8hoIGh3LzoeMoD/SisUecW.d/d0Z7yFzjSPKSSMcwC';
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             $usuario = new Usuario();
-        
-            $usuario ->setNombre('Usuario' . $i);
-            $usuario ->setEmail('usuario' . $i . '@gmail.com');
-            $usuario ->setPassword($password);  
+
+            $usuario->setNombre('Usuario' . $i);
+            $usuario->setEmail('usuario' . $i . '@gmail.com');
+            $usuario->setPassword($password);
 
             $manager->persist($usuario);
         }

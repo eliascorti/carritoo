@@ -1,0 +1,49 @@
+{# templates/security/login.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block body %}
+    <header class="header">
+        <h1 class="title">Carrito de Compras</h1>
+    </header>
+
+    <main class="auth">
+        <form class="auth-card" action="{{ path('app_login') }}" method="post">
+            <h2 class="auth-title">Autenticación</h2>
+
+            {% if error %}
+                <p class="alert-error">Usuario o contraseña incorrecta</p>
+            {% endif %}
+
+            <div class="field">
+                <label class="field-label" for="username">Email</label>
+                <input
+                    class="field-input"
+                    type="email"
+                    id="username"
+                    name="_username"
+                    value="{{ last_username }}"
+                    autocomplete="email"
+                    required
+                    autofocus
+                />
+            </div>
+
+            <div class="field">
+                <label class="field-label" for="password">Password</label>
+                <input
+                    class="field-input"
+                    type="password"
+                    id="password"
+                    name="_password"
+                    autocomplete="current-password"
+                    required
+                />
+            </div>
+
+            <button class="btn-dark" type="submit">Ingresar</button>
+        </form>
+    </main>
+{% endblock %}
